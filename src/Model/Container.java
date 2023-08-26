@@ -2,6 +2,8 @@ package Model;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Container extends Cargo {
 
@@ -45,7 +47,7 @@ public class Container extends Cargo {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.getMessage();
         }
         return false;
     }
