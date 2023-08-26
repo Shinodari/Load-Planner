@@ -1,6 +1,6 @@
 package Model;
 
-public class Cargo {
+abstract class Cargo {
     protected int id;
     protected String name;
     protected Size size;
@@ -15,13 +15,7 @@ public class Cargo {
         return size;
     }
 
-    public boolean add(String name, Size size){
-
-    }
-    public boolean edit(String name, Size size){
-
-    }
-    public boolean remove(){
-
-    }
+    public abstract boolean add(String name, Size size);
+    public abstract boolean edit(String name, Size size);
+    public abstract boolean remove();
 }
