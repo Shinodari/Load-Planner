@@ -21,11 +21,44 @@ public class Container extends Cargo {
     }
     @Override
     public boolean add(String name, Size size) {
-        return false;
+        String url = "jdbc:sqlite:lpdb.db";
+        String query = "INSERT INTO Container(name, length, widht, height) VALUES(?, ?, ?, ?)";
+
+        try (Connection conn = DriverManager.getConnection(url);
+            PreparedStatement preparedStatement = conn.prepareStatement(query)) {
+
+            preparedStatement.setString(1, name);
+            preparedStatement.setDouble(2, size.getLength());
+            preparedStatement.setDouble(3,size.getWidth());
+            preparedStatement.setDouble(4,size.getHeight());
+
+            int rowAffected = preparedStatement.executeUpdate();
+
+            return rowAffected > 0;
+        } catch (SQLException e) {
+            return false;
+        }
     }
     @Override
     public boolean edit(String name, Size size) {
-        return false;
+        String url = "jdbc:sqlite:lpdb.db";
+        String query = "UPDATE Container SET name = ?, length = ?, width = ?, height = ? WHERE id = ?";
+
+        try (Connection conn = DriverManager.getConnection(url);
+            PreparedStatement preparedStatement = conn.prepareStatement(query)){
+
+            preparedStatement.setString(1,name);
+            preparedStatement.setDouble(2,size.getLength());
+            preparedStatement.setDouble(3,size.getWidth());
+            preparedStatement.setDouble(4,size.getHeight());
+            preparedStatement.setInt(5,this.id);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            return rowsAffected > 0;
+
+        } catch (SQLException e){
+            return false;
+        }
     }
     @Override
     public boolean remove() {
