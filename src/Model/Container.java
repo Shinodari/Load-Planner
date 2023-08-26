@@ -34,10 +34,20 @@ public class Container extends Cargo {
 
             int rowAffected = preparedStatement.executeUpdate();
 
-            return rowAffected > 0;
+            if(rowAffected > 0){
+                try(ResultSet generatedKeys = preparedStatement.getGeneratedKeys()){
+                    if(generatedKeys.next()){
+                        this.id = generatedKeys.getInt(1);
+                        this.name = name;
+                        this.size = size;
+                        return true;
+                    }
+                }
+            }
         } catch (SQLException e) {
-            return false;
+            e.printStackTrace();
         }
+        return false;
     }
     @Override
     public boolean edit(String name, Size size) {
