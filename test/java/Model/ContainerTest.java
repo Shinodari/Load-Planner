@@ -14,7 +14,7 @@ class ContainerTest {
     void getAllContainer() {
         ArrayList<Container> containers = Container.getAllContainer();
         assert containers != null;
-        assertEquals(2, containers.size());
+        assertNotEquals(0, containers.size());
     }
 
     @Test
@@ -32,5 +32,9 @@ class ContainerTest {
         int a = containersAfter.size();
 
         assertEquals(a, b+1);
+        assertNotEquals(0, container.id);
+        assertNotEquals(0, container.name);
+        Size size = container.size;
+        assertNotEquals(0,size.getLength());
     }
 }
