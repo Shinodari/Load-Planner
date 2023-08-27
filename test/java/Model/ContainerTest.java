@@ -37,4 +37,44 @@ class ContainerTest {
         Size size = container.size;
         assertNotEquals(0,size.getLength());
     }
+
+    @Test
+    @DisplayName("Edit Container")
+    void edit() {
+        ArrayList<Container> containers = Container.getAllContainer();
+        assert containers != null;
+        int count = containers.size();
+        Container container = new Container(count - 1);
+        int id = container.getId();
+        String name = container.getName();
+        Size size = container.getSize();
+        double length = size.getLength();
+        double width = size.getWidth();
+        double height = size.getHeight();
+
+        assertNotEquals(0, container.id);
+        assertNotNull(container.name);
+        assertNotEquals(0,size.getLength());
+        assertNotEquals(0,size.getWidth());
+        assertNotEquals(0,size.getHeight());
+
+        name += id;
+        ++length;
+        ++width;
+        ++height;
+
+        container.edit(name, new Size(length, width, height));
+        assertEquals(id, container.id);
+        assertEquals(name, container.name);
+        assertEquals(length, container.size.getLength());
+        assertEquals(width, container.size.getWidth());
+        assertEquals(height, container.size.getHeight());
+
+        Container containerT = new Container(id);
+        assertEquals(id, containerT.id);
+        assertEquals(name, containerT.name);
+        assertEquals(length, containerT.size.getLength());
+        assertEquals(width, containerT.size.getWidth());
+        assertEquals(height, containerT.size.getHeight());
+    }
 }
