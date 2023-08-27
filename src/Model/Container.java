@@ -22,22 +22,32 @@ public class Container extends Cargo {
     @Override
     public boolean add(String name, Size size) {
         String url = "jdbc:sqlite:lpdb.db";
-        String query = "INSERT INTO Container(name, length, widht, height) VALUES(?, ?, ?, ?)";
+        String query = "INSERT INTO Container(name, length, width, height) VALUES(?, ?, ?, ?)";
 
         try (Connection conn = DriverManager.getConnection(url);
             PreparedStatement preparedStatement = conn.prepareStatement(query)) {
 
             preparedStatement.setString(1, name);
             preparedStatement.setDouble(2, size.getLength());
-            preparedStatement.setDouble(3,size.getWidth());
-            preparedStatement.setDouble(4,size.getHeight());
+            preparedStatement.setDouble(3, size.getWidth());
+            preparedStatement.setDouble(4, size.getHeight());
 
             int rowAffected = preparedStatement.executeUpdate();
 
-            return rowAffected > 0;
+            if(rowAffected > 0){
+                try(ResultSet generatedKeys = preparedStatement.getGeneratedKeys()){
+                    if(generatedKeys.next()){
+                        this.id = generatedKeys.getInt(1);
+                        this.name = name;
+                        this.size = size;
+                        return true;
+                    }
+                }
+            }
         } catch (SQLException e) {
-            return false;
+            e.getMessage();
         }
+        return false;
     }
     @Override
     public boolean edit(String name, Size size) {
