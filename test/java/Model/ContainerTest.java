@@ -77,4 +77,23 @@ class ContainerTest {
         assertEquals(width, containerT.size.getWidth());
         assertEquals(height, containerT.size.getHeight());
     }
+
+    @Test
+    @DisplayName("Remove Container")
+    void remove() {
+        ArrayList<Container> containers = Container.getAllContainer();
+        int count = containers.size();
+        Container container = new Container(containers.get(count - 1).getId());
+
+        Size size = container.getSize();
+        assertNotEquals(0, container.id);
+        assertNotNull(container.name);
+        assertNotEquals(0,size.getLength());
+        assertNotEquals(0,size.getWidth());
+        assertNotEquals(0,size.getHeight());
+
+        boolean result = container.remove();
+        assertTrue(result);
+        assertEquals(count - 1, Container.getAllContainer().size());
+    }
 }
