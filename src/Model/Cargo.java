@@ -1,6 +1,6 @@
 package Model;
 
-abstract class Cargo {
+public abstract class Cargo {
     protected int id;
     protected String name;
     protected Size size;

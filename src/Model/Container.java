@@ -10,6 +10,7 @@ public class Container extends Cargo {
     }
     public Container(int id){
        this.id = id;
+       fetchData(id);
     }
     public Container(int id, String name, Size size){
         this.id = id;
@@ -17,7 +18,25 @@ public class Container extends Cargo {
         this.size = size;
     }
     private void fetchData(int id){
+        String url = "jdbc:sqlite:lpdb.db";
+        String query = "SELECT name, length, width, height FROM Container WHERE id = ?";
+        try (Connection conn = DriverManager.getConnection(url);
+             PreparedStatement preparedStatement = conn.prepareStatement(query)) {
 
+            preparedStatement.setInt(1, id);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    this.name = resultSet.getString("name");
+                    double length = resultSet.getDouble("length");
+                    double width = resultSet.getDouble("width");
+                    double height = resultSet.getDouble("height");
+                    this.size = new Size(length, width, height);
+                }
+            }
+        } catch (SQLException e) {
+
+        }
     }
     @Override
     public boolean add(String name, Size size) {
@@ -45,7 +64,7 @@ public class Container extends Cargo {
                 }
             }
         } catch (SQLException e) {
-            e.getMessage();
+
         }
         return false;
     }
@@ -64,8 +83,14 @@ public class Container extends Cargo {
             preparedStatement.setInt(5,this.id);
 
             int rowsAffected = preparedStatement.executeUpdate();
-            return rowsAffected > 0;
-
+            if (rowsAffected > 0){
+                this.name = name;
+                this.size = size;
+                return true;
+            }
+            else{
+                return false;
+            }
         } catch (SQLException e){
             return false;
         }
