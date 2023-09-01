@@ -3,6 +3,7 @@ package Model;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,7 +26,8 @@ class ContainerTest {
         int b = containersBefore.size();
 
         Container container = new Container();
-        boolean test = container.add("test",new Size(10, 20, 30));
+        Color color = new Color(121,121,121);
+        boolean test = container.add("test",new Size(10, 20, 30 , color));
         assertTrue(test);
 
         ArrayList<Container> containersAfter = Container.getAllContainer();
@@ -36,6 +38,8 @@ class ContainerTest {
         assertNotEquals(0, container.name);
         Size size = container.size;
         assertNotEquals(0,size.getLength());
+        Color color2 = container.color;
+        assertEquals(121, color2.getRed());
     }
 
     @Test
@@ -51,12 +55,14 @@ class ContainerTest {
         double length = size.getLength();
         double width = size.getWidth();
         double height = size.getHeight();
+        Color color = container.color;
 
         assertNotEquals(0, container.id);
         assertNotNull(container.name);
         assertNotEquals(0,size.getLength());
         assertNotEquals(0,size.getWidth());
         assertNotEquals(0,size.getHeight());
+        assertNotEquals(0, color.getRed());
 
         name += id;
         ++length;
@@ -69,6 +75,7 @@ class ContainerTest {
         assertEquals(length, container.size.getLength());
         assertEquals(width, container.size.getWidth());
         assertEquals(height, container.size.getHeight());
+        assertEquals(color, container.color.getRed());
 
         Container containerT = new Container(id);
         assertEquals(id, containerT.id);
@@ -76,6 +83,7 @@ class ContainerTest {
         assertEquals(length, containerT.size.getLength());
         assertEquals(width, containerT.size.getWidth());
         assertEquals(height, containerT.size.getHeight());
+        assertEquals(color, containerT.color.getRed());
     }
 
     @Test
