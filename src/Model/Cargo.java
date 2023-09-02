@@ -7,6 +7,7 @@ public abstract class Cargo {
     protected Size size;
     protected Color color;
 
+
     public int getId(){
         return id;
     }

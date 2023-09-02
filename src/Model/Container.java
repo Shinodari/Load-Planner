@@ -19,7 +19,7 @@ public class Container extends Cargo {
     }
     private void fetchData(int id){
         String url = "jdbc:sqlite:lpdb.db";
-        String query = "SELECT name, length, width, height, alpha, red, green, blue FROM Container WHERE id = ?";
+        String query = "SELECT name, length, width, height, color FROM Container WHERE id = ?";
         try (Connection conn = DriverManager.getConnection(url);
              PreparedStatement preparedStatement = conn.prepareStatement(query)) {
 
@@ -31,13 +31,10 @@ public class Container extends Cargo {
                     double length = resultSet.getDouble("length");
                     double width = resultSet.getDouble("width");
                     double height = resultSet.getDouble("height");
-                    int alpha = resultSet.getInt("alpha");
-                    int red = resultSet.getInt("red");
-                    int green = resultSet.getInt("green");
-                    int blue = resultSet.getInt("blue");
+                    this.color = new Color(resultSet.getInt("color"));
 
                     this.size = new Size(length, width, height);
-                    this.color = new Color(red,green,blue,alpha);
+
                 }
             }
         } catch (SQLException e) {
@@ -47,7 +44,7 @@ public class Container extends Cargo {
     @Override
     public boolean add(String name, Size size, Color color) {
         String url = "jdbc:sqlite:lpdb.db";
-        String query = "INSERT INTO Container(name, length, width, height, alpha, red, green, blue) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO Container(name, length, width, height, color) VALUES(?, ?, ?, ?, ?)";
 
         try (Connection conn = DriverManager.getConnection(url);
             PreparedStatement preparedStatement = conn.prepareStatement(query)) {
@@ -56,11 +53,7 @@ public class Container extends Cargo {
             preparedStatement.setDouble(2, size.getLength());
             preparedStatement.setDouble(3, size.getWidth());
             preparedStatement.setDouble(4, size.getHeight());
-            preparedStatement.setInt(5,color.getAlpha());
-            preparedStatement.setInt(6,color.getRed());
-            preparedStatement.setInt(7,color.getGreen());
-            preparedStatement.setInt(8,color.getBlue());
-
+            preparedStatement.setInt(5,color.getRGB());
 
             int rowAffected = preparedStatement.executeUpdate();
 
@@ -119,7 +112,7 @@ public class Container extends Cargo {
 
     public static ArrayList<Container> getAllContainer() {
         String url = "jdbc:sqlite:lpdb.db";
-        String query = "SELECT id, name, length, width, height, alpha, red, green, blue FROM Container";
+        String query = "SELECT id, name, length, width, height, color FROM Container";
         ArrayList<Container> containers = new ArrayList<>();
 
         try (Connection conn = DriverManager.getConnection(url);
@@ -133,13 +126,9 @@ public class Container extends Cargo {
                 double length = resultSet.getDouble("length");
                 double width = resultSet.getDouble("width");
                 double height = resultSet.getDouble("height");
-                int alpha = resultSet.getInt("alpha");
-                int red = resultSet.getInt("red");
-                int green = resultSet.getInt("green");
-                int blue = resultSet.getInt("blue");
+                Color color = new Color(resultSet.getInt("color"));
 
                 Size size = new Size(length, width, height);
-                Color color = new Color(red, green, blue, alpha);
                 Container container = new Container(id, name, size, color);
                 containers.add(container);
             }
