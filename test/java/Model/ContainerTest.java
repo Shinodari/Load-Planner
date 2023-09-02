@@ -27,7 +27,7 @@ class ContainerTest {
 
         Container container = new Container();
         Color color = new Color(121,121,121);
-        boolean test = container.add("test",new Size(10, 20, 30 , color));
+        boolean test = container.add("test",new Size(10, 20, 30) , color);
         assertTrue(test);
 
         ArrayList<Container> containersAfter = Container.getAllContainer();
@@ -69,7 +69,7 @@ class ContainerTest {
         ++width;
         ++height;
 
-        container.edit(name, new Size(length, width, height));
+        container.edit(name, new Size(length, width, height),color);
         assertEquals(id, container.id);
         assertEquals(name, container.name);
         assertEquals(length, container.size.getLength());
