@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e53f41b-cba8-4f19-b6d3-a1110a475f80" name="Changes" comment="fix(container):change db location, add lib, add test">
-      <change afterPath="$PROJECT_DIR$/lib/apiguardian-api-1.1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-jupiter-5.8.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-jupiter-api-5.8.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-jupiter-engine-5.8.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-jupiter-params-5.8.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-platform-commons-1.8.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-platform-engine-1.8.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/opentest4j-1.2.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/sqlite-jdbc-3.42.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/java/Model/ContainerTest.java" afterDir="false" />
+    <list default="true" id="5e53f41b-cba8-4f19-b6d3-a1110a475f80" name="Changes" comment="test(container):add test color attribute">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Load Planner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Load Planner.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lpdb.db" beforeDir="false" afterPath="$PROJECT_DIR$/lpdb.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lpdb.db" beforeDir="false" afterPath="$PROJECT_DIR$/lpdb.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -51,14 +44,26 @@
         <option name="title" value="Current Branch" />
       </GitPushTagMode>
     </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="f22adcb3afd29fa257d1c18760056e5591da5b03" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Shinodari"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Shinodari&quot;
   }
-}]]></component>
+}</component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="dev" />
+      </list>
+    </option>
+  </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -67,9 +72,11 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: -1
+  &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2UIPQ1I0y4ie4SbqKzmTSazHIKP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -86,6 +93,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
@@ -95,7 +103,8 @@
     "onboarding.tips.debug.path": "C:/Users/shino/IdeaProjects/Load Planner/src/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15429688",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.excludes"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -108,6 +117,96 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="Model" />
     </key>
+  </component>
+  <component name="RunManager" selected="JUnit.ContainerTest.getAllContainer">
+    <configuration name="ContainerTableModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Load Planner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.ContainerTableModelTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContainerTableModelTest.getValueAt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Load Planner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.ContainerTableModelTest" />
+      <option name="METHOD_NAME" value="getValueAt" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContainerTest.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Load Planner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.ContainerTest" />
+      <option name="METHOD_NAME" value="add" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContainerTest.edit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Load Planner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.ContainerTest" />
+      <option name="METHOD_NAME" value="edit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContainerTest.getAllContainer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Load Planner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.ContainerTest" />
+      <option name="METHOD_NAME" value="getAllContainer" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ContainerTest.getAllContainer" />
+        <item itemvalue="JUnit.ContainerTableModelTest" />
+        <item itemvalue="JUnit.ContainerTest.add" />
+        <item itemvalue="JUnit.ContainerTest.edit" />
+        <item itemvalue="JUnit.ContainerTableModelTest.getValueAt" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -126,7 +225,103 @@
       <option name="project" value="LOCAL" />
       <updated>1692624545650</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix(container):change db location, add lib, add test">
+      <option name="closed" value="true" />
+      <created>1693055846699</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1693055846699</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test(container):define add test #1">
+      <option name="closed" value="true" />
+      <created>1693063028260</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1693063028260</updated>
+    </task>
+    <task id="LOCAL-00004" summary="test(container):update add test #1">
+      <option name="closed" value="true" />
+      <created>1693068932408</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1693068932408</updated>
+    </task>
+    <task id="LOCAL-00005" summary="test(container):create &quot;edit test&quot; #1">
+      <option name="closed" value="true" />
+      <created>1693142752662</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1693142752662</updated>
+    </task>
+    <task id="LOCAL-00006" summary="test(container):create &quot;edit test&quot; #1">
+      <option name="closed" value="true" />
+      <created>1693142925396</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1693142925396</updated>
+    </task>
+    <task id="LOCAL-00007" summary="test(container):create &quot;remove test&quot; #1">
+      <option name="closed" value="true" />
+      <created>1693231194194</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1693231194194</updated>
+    </task>
+    <task id="LOCAL-00008" summary="test(container):create &quot;remove test&quot; #1">
+      <option name="closed" value="true" />
+      <created>1693231284858</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1693231284858</updated>
+    </task>
+    <task id="LOCAL-00009" summary="core(db):update db">
+      <option name="closed" value="true" />
+      <created>1693235167375</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1693235167375</updated>
+    </task>
+    <task id="LOCAL-00010" summary="core(db):create pallet table">
+      <option name="closed" value="true" />
+      <created>1693235233055</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1693235233055</updated>
+    </task>
+    <task id="LOCAL-00011" summary="core(db):add color column for container and pallet">
+      <option name="closed" value="true" />
+      <created>1693491851213</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1693491851213</updated>
+    </task>
+    <task id="LOCAL-00012" summary="core(db):add color column for container and pallet #1">
+      <option name="closed" value="true" />
+      <created>1693492601867</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1693492601867</updated>
+    </task>
+    <task id="LOCAL-00013" summary="test(container):add test color attribute">
+      <option name="closed" value="true" />
+      <created>1693579137157</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1693579137157</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,6 +359,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Commit" />
     <MESSAGE value="fix(container):change db location, add lib, add test" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(container):change db location, add lib, add test" />
+    <MESSAGE value="test(container):define add test #1" />
+    <MESSAGE value="test(container):update add test #1" />
+    <MESSAGE value="test(container):create &quot;edit test&quot; #1" />
+    <MESSAGE value="test(container):create &quot;remove test&quot; #1" />
+    <MESSAGE value="core(db):update db" />
+    <MESSAGE value="core(db):create pallet table" />
+    <MESSAGE value="core(db):add color column for container and pallet" />
+    <MESSAGE value="core(db):add color column for container and pallet #1" />
+    <MESSAGE value="test(container):add test color attribute" />
+    <option name="LAST_COMMIT_MESSAGE" value="test(container):add test color attribute" />
   </component>
 </project>
