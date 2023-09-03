@@ -75,7 +75,7 @@ class ContainerTest {
         assertEquals(length, container.size.getLength());
         assertEquals(width, container.size.getWidth());
         assertEquals(height, container.size.getHeight());
-        assertEquals(color, container.color.getRed());
+        assertEquals(color.getRGB(), container.color.getRGB());
 
         Container containerT = new Container(id);
         assertEquals(id, containerT.id);
@@ -83,7 +83,8 @@ class ContainerTest {
         assertEquals(length, containerT.size.getLength());
         assertEquals(width, containerT.size.getWidth());
         assertEquals(height, containerT.size.getHeight());
-        assertEquals(color, containerT.color.getRed());
+        assertEquals(color.getRGB(), containerT.color.getRGB());
+        assertEquals(color.getRed(), containerT.color.getRed());
     }
 
     @Test
