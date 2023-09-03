@@ -76,7 +76,7 @@ public class Container extends Cargo {
     @Override
     public boolean edit(String name, Size size, Color color) {
         String url = "jdbc:sqlite:lpdb.db";
-        String query = "UPDATE Container SET name = ?, length = ?, width = ?, height = ?, alpha = ?, red = ?, green = ?, blue = ? WHERE id = ?";
+        String query = "UPDATE Container SET name = ?, length = ?, width = ?, height = ?, color = ? WHERE id = ?";
 
         try (Connection conn = DriverManager.getConnection(url);
             PreparedStatement preparedStatement = conn.prepareStatement(query)){
@@ -85,11 +85,8 @@ public class Container extends Cargo {
             preparedStatement.setDouble(2, size.getLength());
             preparedStatement.setDouble(3, size.getWidth());
             preparedStatement.setDouble(4, size.getHeight());
-            preparedStatement.setInt(5, color.getAlpha());
-            preparedStatement.setInt(6, color.getRed());
-            preparedStatement.setInt(7, color.getGreen());
-            preparedStatement.setInt(8, color.getBlue());
-            preparedStatement.setInt(9, this.id);
+            preparedStatement.setInt(5,color.getRGB());
+            preparedStatement.setInt(6, this.id);
 
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0){
