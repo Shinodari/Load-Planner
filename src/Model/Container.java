@@ -104,7 +104,25 @@ public class Container extends Cargo {
     }
     @Override
     public boolean remove() {
-        return false;
+        String url = "jdbc:sqlite:lpdb.db";
+        String query = "DELETE FROM Container WHERE id = ?";
+
+        try (Connection conn = DriverManager.getConnection(url);
+             PreparedStatement preparedStatement = conn.prepareStatement(query)){
+
+            preparedStatement.setInt(1, id);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected  > 0){
+                return  true;
+            }
+            else {
+                return  false;
+            }
+        }catch (SQLException e) {
+            return false;
+        }
     }
 
     public static ArrayList<Container> getAllContainer() {
