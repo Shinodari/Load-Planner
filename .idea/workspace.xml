@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e53f41b-cba8-4f19-b6d3-a1110a475f80" name="Changes" comment="test(container):add test color attribute">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="5e53f41b-cba8-4f19-b6d3-a1110a475f80" name="Changes" comment="feat(container gui): first&#10;resolved: #2">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_27_2023_8_07_PM_[Changes]/lpdb.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_27_2023_8_07_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_27_2023_8_07_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lpdb.db" beforeDir="false" afterPath="$PROJECT_DIR$/lpdb.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +48,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="f22adcb3afd29fa257d1c18760056e5591da5b03" />
+        <entry key="$PROJECT_DIR$" value="container" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -84,29 +86,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "container",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Program Files (x86)/Java/JDBC/sqlite-jdbc-3.42.0.0.jar",
-    "onboarding.tips.debug.path": "C:/Users/shino/IdeaProjects/Load Planner/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15429688",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.excludes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Container-Front-End&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Program Files (x86)/Java/JDBC/sqlite-jdbc-3.42.0.0.jar&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/shino/IdeaProjects/Load Planner/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15429688&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.excludes&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -118,8 +120,8 @@
       <recent name="Model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ContainerTest.getAllContainer">
-    <configuration name="ContainerTableModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="ContainerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Load Planner" />
       <extension name="coverage">
         <pattern>
@@ -128,24 +130,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Model" />
-      <option name="MAIN_CLASS_NAME" value="Model.ContainerTableModelTest" />
+      <option name="MAIN_CLASS_NAME" value="Model.ContainerTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ContainerTableModelTest.getValueAt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Load Planner" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Model" />
-      <option name="MAIN_CLASS_NAME" value="Model.ContainerTableModelTest" />
-      <option name="METHOD_NAME" value="getValueAt" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -198,13 +184,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ContainerTest.remove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Load Planner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.ContainerTest" />
+      <option name="METHOD_NAME" value="remove" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ContainerTest" />
+        <item itemvalue="JUnit.ContainerTest.remove" />
         <item itemvalue="JUnit.ContainerTest.getAllContainer" />
-        <item itemvalue="JUnit.ContainerTableModelTest" />
-        <item itemvalue="JUnit.ContainerTest.add" />
         <item itemvalue="JUnit.ContainerTest.edit" />
-        <item itemvalue="JUnit.ContainerTableModelTest.getValueAt" />
+        <item itemvalue="JUnit.ContainerTest.add" />
       </list>
     </recent_temporary>
   </component>
@@ -321,7 +323,47 @@
       <option name="project" value="LOCAL" />
       <updated>1693579137157</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="refector(db)">
+      <option name="closed" value="true" />
+      <created>1693673603145</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1693673603145</updated>
+    </task>
+    <task id="LOCAL-00015" summary="refactor(external src)">
+      <option name="closed" value="true" />
+      <created>1693673886105</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1693673886105</updated>
+    </task>
+    <task id="LOCAL-00016" summary="test(container):fix assert equal color">
+      <option name="closed" value="true" />
+      <created>1693751031282</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1693751031283</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat(container)!:create table model&#10;BREAKING CHANGE: Main.java is simple main&#10;Resolved: #1">
+      <option name="closed" value="true" />
+      <created>1693758930804</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1693758930804</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat(container gui): first&#10;resolved: #2">
+      <option name="closed" value="true" />
+      <created>1693843330163</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1693843330163</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -350,6 +392,17 @@
                   <entry key="Show.Git.Branches" value="true" />
                 </map>
               </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/Pallet" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
             </State>
           </value>
         </entry>
@@ -368,6 +421,11 @@
     <MESSAGE value="core(db):add color column for container and pallet" />
     <MESSAGE value="core(db):add color column for container and pallet #1" />
     <MESSAGE value="test(container):add test color attribute" />
-    <option name="LAST_COMMIT_MESSAGE" value="test(container):add test color attribute" />
+    <MESSAGE value="refector(db)" />
+    <MESSAGE value="refactor(external src)" />
+    <MESSAGE value="test(container):fix assert equal color" />
+    <MESSAGE value="feat(container)!:create table model&#10;BREAKING CHANGE: Main.java is simple main&#10;Resolved: #1" />
+    <MESSAGE value="feat(container gui): first&#10;resolved: #2" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(container gui): first&#10;resolved: #2" />
   </component>
 </project>
