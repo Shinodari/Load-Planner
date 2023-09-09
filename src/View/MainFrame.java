@@ -1,16 +1,10 @@
 package View;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Frame;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.beans.PropertyVetoException;
 
-import javax.swing.Box;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -32,16 +26,16 @@ public class MainFrame extends JFrame implements ActionListener {
 		JMenu mainMenu = new JMenu("Main");
 		
 		JMenuItem containerMenuItem = new JMenuItem("Container");
-		containerMenuItem.setMaximumSize(new Dimension(200, 100));
 		containerMenuItem.setActionCommand(containerMenuItem.getName());
 		containerMenuItem.addActionListener(this);
 		
 		JMenuItem palletMenuItem = new JMenuItem("Pallet");
-		palletMenuItem.setMaximumSize(new Dimension(500, 100));
 		palletMenuItem.setActionCommand(palletMenuItem.getName());
 		palletMenuItem.addActionListener(this);
 		
 		JMenuItem shipmentMenuItem = new JMenuItem("Shipment");
+		shipmentMenuItem.setActionCommand(shipmentMenuItem.getName());
+		shipmentMenuItem.addActionListener(this);
 		
 		mainMenu.add(containerMenuItem);
 		mainMenu.add(palletMenuItem);
