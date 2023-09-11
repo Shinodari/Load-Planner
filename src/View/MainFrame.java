@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyVetoException;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
@@ -69,7 +70,7 @@ public class MainFrame extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()) {
 		case "Container":
-			/* -- This process in IssueNo: #2 (Assign: Shinodari) --
+			/* -- This process in IssueNo: #2 (Assign: Shinodari) --*/
 			ContainerFrame containerFrame = new ContainerFrame();
 			containerFrame.setVisible(true);
 			desktop.add(containerFrame);
@@ -77,7 +78,7 @@ public class MainFrame extends JFrame implements ActionListener {
 				containerFrame.setSelected(true);
 			} catch (PropertyVetoException e1) {
 				e1.printStackTrace();
-			}*/
+			}
 			break;
 		case "Pallet":
 			//ToDO for IssueNo: #3 (Assign: Hibino02)
