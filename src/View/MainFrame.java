@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyVetoException;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
@@ -80,7 +81,14 @@ public class MainFrame extends JFrame implements ActionListener {
 			}*/
 			break;
 		case "Pallet":
-			//ToDO for IssueNo: #3 (Assign: Hibino02)
+			PalletFrame palletFrame = new PalletFrame();
+			palletFrame.setVisible(true);
+			desktop.add(palletFrame);
+			try {
+				palletFrame.setSelected(true);
+			} catch (PropertyVetoException e2) {
+				e2.printStackTrace();
+			}
 			break;
 		}
 	}

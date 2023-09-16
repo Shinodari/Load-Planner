@@ -3,7 +3,7 @@ package Model;
 public class PalletTableModel extends LoadPlannerDefaultTableModel {
 	public PalletTableModel() {
 		this.columnNames = new String[]{"Id", "Name", "Width", "Length", "Height", "Color"};
-		this.dataList = Container.getAllContainer();
+		this.dataList = Pallet.getAllPallet();
 	}
 	
 	
