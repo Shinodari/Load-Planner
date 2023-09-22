@@ -4,7 +4,9 @@ import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
 public abstract class LoadPlannerDefaultTableModel extends AbstractTableModel {
-    protected String[] columnNames;
+	private static final long serialVersionUID = 1L;
+	
+	protected String[] columnNames;
     protected List dataList;
 
     @Override
