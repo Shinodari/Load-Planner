@@ -26,4 +26,6 @@ public abstract class LoadPlannerDefaultTableModel extends AbstractTableModel {
 
     @Override
     public abstract Class<?> getColumnClass(int columnIndex);
+    
+    public abstract void updateTable();
 }

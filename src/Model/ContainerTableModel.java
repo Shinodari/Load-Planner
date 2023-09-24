@@ -28,4 +28,9 @@ public class ContainerTableModel extends LoadPlannerDefaultTableModel {
             default -> null;
         };
     }
+
+	public void updateTable() {
+		this.dataList = Container.getAllContainer();
+		fireTableDataChanged();
+	}
 }
