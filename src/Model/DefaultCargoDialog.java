@@ -1,4 +1,4 @@
-package View;
+package Model;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SpringLayout;
 
-public abstract class AbstractContainerDialog extends JDialog implements ActionListener{
+public abstract class DefaultCargoDialog extends JDialog implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	
 	public boolean isSucces = false;
@@ -41,7 +41,7 @@ public abstract class AbstractContainerDialog extends JDialog implements ActionL
 	protected JButton doneButton = new JButton("Done");
 	protected JButton cancelButton = new JButton("Cancel");
 
-	public AbstractContainerDialog(Container parent,String title) {
+	public DefaultCargoDialog(Container parent,String title) {
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setTitle(title);
