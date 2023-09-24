@@ -4,14 +4,13 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JOptionPane;
-import javax.swing.table.AbstractTableModel;
 
 import Model.Container;
 import Model.ContainerTableModel;
-import Model.LoadPlannerDefaultTable;
+import Model.DefaultCargoDialog;
 import Model.Size;
 
-public class AddContainerFrame extends AbstractContainerDialog {
+public class AddContainerFrame extends DefaultCargoDialog {
 	private static final long serialVersionUID = 1L;
 	
 	private ContainerTableModel containerTableModel;
