@@ -1,4 +1,4 @@
-package View;
+package View.Container;
 
 import java.awt.BorderLayout;
 import java.awt.Button;

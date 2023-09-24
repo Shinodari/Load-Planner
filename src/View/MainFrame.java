@@ -13,6 +13,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.SwingUtilities;
 
+import View.Container.ContainerFrame;
+
 public class MainFrame extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	

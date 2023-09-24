@@ -29,7 +29,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */ 
 
-package View;
+package View.lib;
 
 import javax.swing.*;
 import javax.swing.SpringLayout;

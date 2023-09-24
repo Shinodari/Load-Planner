@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SpringLayout;
 
-import View.SpringUtilities;
+import View.lib.SpringUtilities;
 
 public abstract class DefaultCargoDialog extends JDialog implements ActionListener{
 	private static final long serialVersionUID = 1L;
