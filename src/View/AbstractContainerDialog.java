@@ -1,11 +1,17 @@
 package View;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -14,8 +20,10 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SpringLayout;
 
-public abstract class AbstractContainerDialog extends JDialog{
+public abstract class AbstractContainerDialog extends JDialog implements ActionListener{
 	private static final long serialVersionUID = 1L;
+	
+	public boolean isSucces = false;
 	
 	protected JPanel mainPanel = new JPanel(new SpringLayout());
 	protected JPanel buttonPanel = new JPanel();
@@ -27,12 +35,14 @@ public abstract class AbstractContainerDialog extends JDialog{
 	protected JSpinner lenghtSpinner = new JSpinner(spinnerNumberModel);
 	protected JSpinner heightSpinner = new JSpinner(spinnerNumberModel);
 	
-	protected JTextField colorField = new JTextField(15);
+	protected JTextField colorField = new JTextField(5);
+	protected JButton colorChooserButton = new JButton("...");
 	
 	protected JButton doneButton = new JButton("Done");
 	protected JButton cancelButton = new JButton("Cancel");
 
 	public AbstractContainerDialog(Container parent,String title) {
+		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setTitle(title);
 		initComponent();
@@ -48,6 +58,21 @@ public abstract class AbstractContainerDialog extends JDialog{
 	}
 	
 	private void initComponent() {
+		colorField.setEnabled(false);
+		Font font = colorChooserButton.getFont();
+		colorChooserButton.setMargin(new Insets(1, 1, 1, 1));
+		colorChooserButton.setPreferredSize(new Dimension(font.getSize()+1, colorField.getPreferredSize().height));
+		colorChooserButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Color color = JColorChooser.showDialog(null, "Color Chooser", colorField.getBackground());
+				if (color != null) {
+					colorField.setBackground(color);
+				}
+			}
+		});
+		
 		String[] labels = {"Name", "Width", "Length", "Height", "Color"};
 		int numPairs = labels.length;
 		
@@ -70,11 +95,18 @@ public abstract class AbstractContainerDialog extends JDialog{
 				break;
 			case 4:
 				inputPanel.add(colorField);
+				inputPanel.add(colorChooserButton);
 			}
 			
 			mainPanel.add(inputPanel);
 		}		
 		SpringUtilities.makeCompactGrid(mainPanel, numPairs, 2, 10, 10, 5, 10);		
+		
+		doneButton.setActionCommand("done");
+		cancelButton.setActionCommand("cancel");
+		
+		doneButton.addActionListener(this);
+		cancelButton.addActionListener(this);
 		
 		Dimension buttonDimension = new Dimension(120, 50);
 		doneButton.setPreferredSize(buttonDimension);

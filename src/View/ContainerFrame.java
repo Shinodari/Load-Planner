@@ -18,6 +18,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.TableModel;
 
 import Model.LoadPlannerDefaultTable;
 import Model.ContainerTableModel;
@@ -31,6 +32,7 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 	JPanel actionButton = new JPanel(); //--Contain Action Button
 	JPanel exitPanel = new JPanel(); //--Contain Exit Button
 	
+	public ContainerTableModel tableModel = new ContainerTableModel();
 	JTable containerTable;
 	JScrollPane scrollPane;
 	
@@ -50,13 +52,13 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 		}
 		
 		//--Set Table
-		containerTable = new LoadPlannerDefaultTable(new ContainerTableModel());
+		containerTable = new LoadPlannerDefaultTable(tableModel);
 		scrollPane = new JScrollPane(containerTable);
 		scrollPane.setPreferredSize(containerTable.getPreferredSize());
-		scrollPane.setBorder(BorderFactory.createLineBorder(new Color(0, 255, 0)));
+		//scrollPane.setBorder(BorderFactory.createLineBorder(new Color(0, 255, 0)));
 		
 		//--Set up Preview Panel
-		previewPanel.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 255)));
+		//previewPanel.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 255)));
 		//previewPanel.add(new Button("test"));
 		//previewPanel.setPreferredSize(new Dimension(100, 0));
 		
@@ -64,7 +66,7 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 		mainPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		mainPanel.add(scrollPane);
 		mainPanel.add(previewPanel);
-		mainPanel.setBorder(BorderFactory.createLineBorder(new Color(255, 0, 0)));/**/
+		//mainPanel.setBorder(BorderFactory.createLineBorder(new Color(255, 0, 0)));/**/
 		
 		//--Set Button 
 		Dimension buttonDimension = new Dimension(120, 50);
@@ -88,7 +90,6 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 		buttonPanel.add(exitPanel, BorderLayout.PAGE_END);
 		
 		//--Add panel to Content Pane
-		/***For BorderLayout Test*/
 		add(mainPanel, BorderLayout.CENTER);
 		add(buttonPanel, BorderLayout.LINE_END);
 	}
@@ -96,13 +97,11 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
-		case "add": {
-			AddContainerFrame addContainerFrame = new AddContainerFrame(this, "Add Container");
+		case "add": 
+			AddContainerFrame addContainerFrame = new AddContainerFrame(this, tableModel, "Add Container");
+			addContainerFrame.setModal(true);
 			addContainerFrame.setVisible(true);
 			break;
-		}
-		default:
-			throw new IllegalArgumentException("Unexpected value: " + e.getActionCommand());
 		}
 	}
 }
