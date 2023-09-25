@@ -7,8 +7,8 @@ import javax.swing.JOptionPane;
 
 import Model.Container;
 import Model.ContainerTableModel;
-import Model.DefaultCargoDialog;
 import Model.Size;
+import View.Common.DefaultCargoDialog;
 
 public class AddContainerFrame extends DefaultCargoDialog {
 	private static final long serialVersionUID = 1L;

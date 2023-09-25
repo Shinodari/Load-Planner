@@ -1,16 +1,16 @@
-package Model;
+package View.Common;
 
 import java.awt.Dimension;
 
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
-public class LoadPlannerDefaultTable extends JTable {
+public class DefaultTable extends JTable {
 	private static final long serialVersionUID = 1L;
 	
 	private int collumnFreeSize = 1;
 	
-	public LoadPlannerDefaultTable(TableModel tableModel) {
+	public DefaultTable(TableModel tableModel) {
 		this.setModel(tableModel);
 		
 		setPreferredSize(new Dimension(840, 600));
@@ -20,7 +20,7 @@ public class LoadPlannerDefaultTable extends JTable {
 		initColumnSize();
 	}
 	
-	public LoadPlannerDefaultTable(TableModel tableModel, int collumnFreeSize) {
+	public DefaultTable(TableModel tableModel, int collumnFreeSize) {
 		this(tableModel);
 		
 		this.collumnFreeSize = collumnFreeSize;

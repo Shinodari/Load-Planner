@@ -20,8 +20,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
-import Model.LoadPlannerDefaultTable;
 import Model.ContainerTableModel;
+import View.Common.DefaultTable;
 
 public class ContainerFrame extends JInternalFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
@@ -52,7 +52,7 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 		}
 		
 		//--Set Table
-		containerTable = new LoadPlannerDefaultTable(tableModel);
+		containerTable = new DefaultTable(tableModel);
 		scrollPane = new JScrollPane(containerTable);
 		scrollPane.setPreferredSize(containerTable.getPreferredSize());
 		//scrollPane.setBorder(BorderFactory.createLineBorder(new Color(0, 255, 0)));
