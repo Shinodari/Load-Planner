@@ -15,6 +15,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -78,6 +79,9 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 		addButton.setActionCommand("add");
 		addButton.addActionListener(this);
 		
+		editButton.setActionCommand("edit");
+		editButton.addActionListener(this);
+		
 		actionButton.add(addButton);
 		actionButton.add(editButton);
 		actionButton.add(removeButton);
@@ -103,7 +107,16 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 			addContainerFrame.setVisible(true);
 			break;
 		case "edit":
-			//EditContainerFrame editContainerFrame = new EditContainerFrame(this, tableModel, null);
+			int rowIndex = containerTable.getSelectedRow();			
+			int id;
+			EditContainerFrame editContainerFrame;
+			if (rowIndex >= 0) {
+				id = (int) containerTable.getValueAt(rowIndex, 0);
+				editContainerFrame = new EditContainerFrame(this, tableModel, id);
+				editContainerFrame.setVisible(true);
+			} else {
+				JOptionPane.showMessageDialog(null, "Please select the container", "Edit Container", JOptionPane.INFORMATION_MESSAGE);
+			}
 			break;
 		}
 	}

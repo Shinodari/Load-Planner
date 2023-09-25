@@ -3,6 +3,8 @@ package View.Container;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 
+import javax.swing.JOptionPane;
+
 import Model.Container;
 import Model.ContainerTableModel;
 import Model.Size;
@@ -37,8 +39,24 @@ public class EditContainerFrame extends DefaultCargoDialog {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		switch(e.getActionCommand()) {
+		case "done":
+			String name = nameField.getText();
+			int width = (int) widthSpinner.getValue();
+			int lenght = (int) lenghtSpinner.getValue();
+			int height = (int) heightSpinner.getValue();
+			Size size = new Size(lenght, width, height);
+			Color color = colorField.getBackground();
+			
+			if (container.edit(name, size, color)){
+				JOptionPane.showMessageDialog(null, "Edit Container is successfully", "Edit Container", JOptionPane.PLAIN_MESSAGE);
+				containerTableModel.updateTable();;
+			}else {
+				JOptionPane.showMessageDialog(null, "Name or size or color is wrong, please check again!", "Edit Container", JOptionPane.ERROR_MESSAGE);
+			}
+			break;
+		}
+		dispose();
 	}
 
 }
