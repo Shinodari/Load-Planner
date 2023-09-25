@@ -102,6 +102,9 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 			addContainerFrame.setModal(true);
 			addContainerFrame.setVisible(true);
 			break;
+		case "edit":
+			//EditContainerFrame editContainerFrame = new EditContainerFrame(this, tableModel, null);
+			break;
 		}
 	}
 }
