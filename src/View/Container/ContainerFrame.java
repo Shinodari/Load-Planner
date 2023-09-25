@@ -98,7 +98,7 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
 		case "add": 
-			AddContainerFrame addContainerFrame = new AddContainerFrame(this, tableModel, "Add Container");
+			AddContainerFrame addContainerFrame = new AddContainerFrame(this, tableModel);
 			addContainerFrame.setModal(true);
 			addContainerFrame.setVisible(true);
 			break;

@@ -15,8 +15,8 @@ public class AddContainerFrame extends DefaultCargoDialog {
 	
 	private ContainerTableModel containerTableModel;
 
-	public AddContainerFrame(java.awt.Container parent, ContainerTableModel containerTableModel, String title) {
-		super(parent, title);
+	public AddContainerFrame(java.awt.Container parent, ContainerTableModel containerTableModel) {
+		super(parent, "Add Container");
 		this.containerTableModel = containerTableModel;
 		colorField.setBackground(Color.BLACK);
 	}
