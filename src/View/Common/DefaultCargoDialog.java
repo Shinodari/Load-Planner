@@ -29,13 +29,20 @@ public abstract class DefaultCargoDialog extends JDialog implements ActionListen
 	
 	protected JPanel mainPanel = new JPanel(new SpringLayout());
 	protected JPanel buttonPanel = new JPanel();
+	protected JPanel dimensionPanel[];
 	
 	protected JTextField nameField = new JTextField(50);
 	
-	private SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel(100, 0, 1000, 1);
-	protected JSpinner widthSpinner = new JSpinner(spinnerNumberModel);
-	protected JSpinner lenghtSpinner = new JSpinner(spinnerNumberModel);
-	protected JSpinner heightSpinner = new JSpinner(spinnerNumberModel);
+	final int DEFINE_VALUE_DIMENSION = 100;
+	final int DEFINE_MIN_DIMENSION = 0;
+	final int DEFINE_MAX_DIMENSION = 1000;
+	final int DEFINE_STEP_DIMENSION = 1;
+	protected SpinnerNumberModel widthModel = new SpinnerNumberModel(DEFINE_VALUE_DIMENSION, DEFINE_MIN_DIMENSION, DEFINE_MAX_DIMENSION, DEFINE_STEP_DIMENSION);
+	protected SpinnerNumberModel lenghtModel = new SpinnerNumberModel(DEFINE_VALUE_DIMENSION, DEFINE_MIN_DIMENSION, DEFINE_MAX_DIMENSION, DEFINE_STEP_DIMENSION);
+	protected SpinnerNumberModel heightModel = new SpinnerNumberModel(DEFINE_VALUE_DIMENSION, DEFINE_MIN_DIMENSION, DEFINE_MAX_DIMENSION, DEFINE_STEP_DIMENSION);
+	protected JSpinner widthSpinner = new JSpinner(widthModel);
+	protected JSpinner lenghtSpinner = new JSpinner(lenghtModel);
+	protected JSpinner heightSpinner = new JSpinner(heightModel);
 	
 	protected JTextField colorField = new JTextField(5);
 	protected JButton colorChooserButton = new JButton("...");
@@ -77,30 +84,31 @@ public abstract class DefaultCargoDialog extends JDialog implements ActionListen
 		
 		String[] labels = {"Name", "Width", "Length", "Height", "Color"};
 		int numPairs = labels.length;
+		dimensionPanel = new JPanel[numPairs];
 		
 		for (int i = 0; i < numPairs; i++) {
 			JLabel label = new JLabel(labels[i] + " :", JLabel.TRAILING);
 			mainPanel.add(label);
-			JPanel inputPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+			dimensionPanel[i] = new JPanel(new FlowLayout(FlowLayout.LEFT));
 			switch(i) {
 			case 0:
-				inputPanel.add(nameField);
+				dimensionPanel[i].add(nameField);
 				break;
 			case 1:
-				inputPanel.add(widthSpinner);
+				dimensionPanel[i].add(widthSpinner);
 				break;
 			case 2:
-				inputPanel.add(lenghtSpinner);
+				dimensionPanel[i].add(lenghtSpinner);
 				break;
 			case 3:
-				inputPanel.add(heightSpinner);
+				dimensionPanel[i].add(heightSpinner);
 				break;
 			case 4:
-				inputPanel.add(colorField);
-				inputPanel.add(colorChooserButton);
+				dimensionPanel[i].add(colorField);
+				dimensionPanel[i].add(colorChooserButton);
 			}
 			
-			mainPanel.add(inputPanel);
+			mainPanel.add(dimensionPanel[i]);
 		}		
 		SpringUtilities.makeCompactGrid(mainPanel, numPairs, 2, 10, 10, 5, 10);		
 		

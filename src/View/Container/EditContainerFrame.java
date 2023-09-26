@@ -42,15 +42,15 @@ public class EditContainerFrame extends DefaultCargoDialog {
 		switch(e.getActionCommand()) {
 		case "done":
 			String name = nameField.getText();
-			int width = (int) widthSpinner.getValue();
-			int lenght = (int) lenghtSpinner.getValue();
-			int height = (int) heightSpinner.getValue();
+			int width = widthModel.getNumber().intValue();
+			int lenght = lenghtModel.getNumber().intValue();
+			int height = heightModel.getNumber().intValue();
 			Size size = new Size(lenght, width, height);
 			Color color = colorField.getBackground();
 			
 			if (container.edit(name, size, color)){
 				JOptionPane.showMessageDialog(null, "Edit Container is successfully", "Edit Container", JOptionPane.PLAIN_MESSAGE);
-				containerTableModel.updateTable();;
+				containerTableModel.updateTable();
 			}else {
 				JOptionPane.showMessageDialog(null, "Name or size or color is wrong, please check again!", "Edit Container", JOptionPane.ERROR_MESSAGE);
 			}
