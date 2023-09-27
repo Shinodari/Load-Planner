@@ -145,7 +145,7 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 			}
 			break;
 		case "exit":
-			
+			dispose();
 			break;
 		}
 	}
