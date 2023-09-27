@@ -142,6 +142,8 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 					}
 					tableModel.updateTable();
 				}
+			} else {
+				JOptionPane.showMessageDialog(null, "Please select the container", "Remove Container", JOptionPane.INFORMATION_MESSAGE);
 			}
 			break;
 		case "exit":
