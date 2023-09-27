@@ -21,6 +21,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
+import Model.Container;
 import Model.ContainerTableModel;
 import View.Common.DefaultTable;
 
@@ -82,6 +83,12 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 		editButton.setActionCommand("edit");
 		editButton.addActionListener(this);
 		
+		removeButton.setActionCommand("remove");
+		removeButton.addActionListener(this);
+		
+		exitButton.setActionCommand("exit");
+		exitButton.addActionListener(this);
+		
 		actionButton.add(addButton);
 		actionButton.add(editButton);
 		actionButton.add(removeButton);
@@ -100,14 +107,14 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		int rowIndex = containerTable.getSelectedRow();			
+		int id;
 		switch (e.getActionCommand()) {
 		case "add": 
 			AddContainerFrame addContainerFrame = new AddContainerFrame(this, tableModel);
 			addContainerFrame.setVisible(true);
 			break;
 		case "edit":
-			int rowIndex = containerTable.getSelectedRow();			
-			int id;
 			EditContainerFrame editContainerFrame;
 			if (rowIndex >= 0) {
 				id = (int) containerTable.getValueAt(rowIndex, 0);
@@ -116,6 +123,29 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 			} else {
 				JOptionPane.showMessageDialog(null, "Please select the container", "Edit Container", JOptionPane.INFORMATION_MESSAGE);
 			}
+			break;
+		case "remove":
+			if(rowIndex >= 0) { 
+				id = (int) containerTable.getValueAt(rowIndex, 0);
+				Container container = new Container(id);
+				String name = container.getName();
+				if (JOptionPane.showConfirmDialog(null, 
+						"Are you sure to remove '" + name + " Container'?", 
+						"Remove Container", 
+						JOptionPane.YES_NO_OPTION, 
+						JOptionPane.QUESTION_MESSAGE)
+						== JOptionPane.YES_OPTION) {
+					if (container.remove()) {
+						JOptionPane.showMessageDialog(null, "Remove is Successfully", "Remove Container", JOptionPane.PLAIN_MESSAGE);
+					} else {
+						JOptionPane.showMessageDialog(null, "Error, Please try again!", "Remove Container", JOptionPane.ERROR_MESSAGE);
+					}
+					tableModel.updateTable();
+				}
+			}
+			break;
+		case "exit":
+			
 			break;
 		}
 	}
