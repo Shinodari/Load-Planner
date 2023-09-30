@@ -1,8 +1,12 @@
 package Model;
 
 public class ContainerTableModel extends LoadPlannerDefaultTableModel {
+	private static final long serialVersionUID = 1L;
+	
+	private String[] columnNameStrings = {"Id", "Name", "Width", "Length", "Height", "Color"};
+	
     public ContainerTableModel() {
-        this.columnNames = new String[]{"Id", "Name", "Width", "Length", "Height", "Color"};
+        this.columnNames = columnNameStrings;
         this.dataList = Container.getAllContainer();
     }
 
@@ -24,4 +28,9 @@ public class ContainerTableModel extends LoadPlannerDefaultTableModel {
             default -> null;
         };
     }
+
+	public void updateTable() {
+		this.dataList = Container.getAllContainer();
+		fireTableDataChanged();
+	}
 }
