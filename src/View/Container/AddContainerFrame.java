@@ -28,7 +28,7 @@ public class AddContainerFrame extends DefaultCargoDialog {
 			Container container = new Container();
 			String name = nameField.getText();
 			int width = (int) widthSpinner.getValue();
-			int lenght = (int) lenghtSpinner.getValue();
+			int lenght = (int) lengthModel.getValue();
 			int height = (int) heightSpinner.getValue();
 			Color color = colorField.getBackground();
 			

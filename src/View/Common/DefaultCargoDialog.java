@@ -23,34 +23,114 @@ import javax.swing.SpringLayout;
 
 import View.lib.SpringUtilities;
 
+/**
+ * Dialog Template for class inheritance from {@link Model.Cargo Cargo Abstract Class}
+ * <b>such as</b> Add or Edit Dialog
+ * @since 1.0.0
+ */
 public abstract class DefaultCargoDialog extends JDialog implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	
-	public boolean isSucces = false;
-	
+	/**
+	 * Container main editable attributes of cargo class
+	 * Including {@link #dimensionPanel dimensionPanel}
+	 */
 	protected JPanel mainPanel = new JPanel(new SpringLayout());
+	/**
+	 * Container All buttons
+	 */
 	protected JPanel buttonPanel = new JPanel();
+	/**
+	 * Container dimension attributes such as width length and height
+	 */
 	protected JPanel dimensionPanel[];
 	
+	/**
+	 * TextField for name cargo
+	 */
 	protected JTextField nameField = new JTextField(50);
 	
-	final int DEFINE_VALUE_DIMENSION = 100;
-	final int DEFINE_MIN_DIMENSION = 0;
-	final int DEFINE_MAX_DIMENSION = 1000;
-	final int DEFINE_STEP_DIMENSION = 1;
-	protected SpinnerNumberModel widthModel = new SpinnerNumberModel(DEFINE_VALUE_DIMENSION, DEFINE_MIN_DIMENSION, DEFINE_MAX_DIMENSION, DEFINE_STEP_DIMENSION);
-	protected SpinnerNumberModel lenghtModel = new SpinnerNumberModel(DEFINE_VALUE_DIMENSION, DEFINE_MIN_DIMENSION, DEFINE_MAX_DIMENSION, DEFINE_STEP_DIMENSION);
-	protected SpinnerNumberModel heightModel = new SpinnerNumberModel(DEFINE_VALUE_DIMENSION, DEFINE_MIN_DIMENSION, DEFINE_MAX_DIMENSION, DEFINE_STEP_DIMENSION);
+	//-- Default for Spinner of Dimension Attribute --//
+	/**
+	 * Default value dimension = 100
+	 */
+	final int DEFAULT_VALUE_DIMENSION = 100;
+	/**
+	 * Default minimum dimension = 0;
+	 */
+	final int DEFAULT_MIN_DIMENSION = 0;
+	/**
+	 * Default maximum dimension = 1000;
+	 */
+	final int DEFAULT_MAX_DIMENSION = 1000;
+	/**
+	 * Default step Dimension = 1;
+	 */
+	final int DEFAULT_STEP_DIMENSION = 1;
+	/**
+	 * Model for {@link #widthSpinner widthSpinner} 
+	 * @see #DEFAULT_VALUE_DIMENSION
+	 * @see #DEFAULT_MIN_DIMENSION
+	 * @see #DEFAULT_MAX_DIMENSION
+	 * @see #DEFAULT_STEP_DIMENSION
+	 */
+	protected SpinnerNumberModel widthModel = new SpinnerNumberModel(DEFAULT_VALUE_DIMENSION, DEFAULT_MIN_DIMENSION, DEFAULT_MAX_DIMENSION, DEFAULT_STEP_DIMENSION);
+	/**
+	 * Model for {@link #lengthSpinner lengthSpinner} 
+	 * @see #DEFAULT_VALUE_DIMENSION
+	 * @see #DEFAULT_MIN_DIMENSION
+	 * @see #DEFAULT_MAX_DIMENSION
+	 * @see #DEFAULT_STEP_DIMENSION
+	 */
+	protected SpinnerNumberModel lengthModel = new SpinnerNumberModel(DEFAULT_VALUE_DIMENSION, DEFAULT_MIN_DIMENSION, DEFAULT_MAX_DIMENSION, DEFAULT_STEP_DIMENSION);
+	/**
+	 * Model for {@link #heightSpinner heightSpinner} 
+	 * @see #DEFAULT_VALUE_DIMENSION
+	 * @see #DEFAULT_MIN_DIMENSION
+	 * @see #DEFAULT_MAX_DIMENSION
+	 * @see #DEFAULT_STEP_DIMENSION
+	 */
+	protected SpinnerNumberModel heightModel = new SpinnerNumberModel(DEFAULT_VALUE_DIMENSION, DEFAULT_MIN_DIMENSION, DEFAULT_MAX_DIMENSION, DEFAULT_STEP_DIMENSION);
+	
+	/**
+	 * JSpinner for width cargo
+	 */
 	protected JSpinner widthSpinner = new JSpinner(widthModel);
-	protected JSpinner lenghtSpinner = new JSpinner(lenghtModel);
+	/**
+	 * JSpinner for length cargo
+	 */
+	protected JSpinner lengthSpinner = new JSpinner(lengthModel);
+	/**
+	 * JSpinner for height cargo
+	 */
 	protected JSpinner heightSpinner = new JSpinner(heightModel);
 	
+	/**
+	 * JTextField for color cargo
+	 * But it show color by background only
+	 * Can't write in this text field, it can change color by {@link #colorChooserButton ColorChooserButton}
+	 */
 	protected JTextField colorField = new JTextField(5);
+	/**
+	 * JButton Use call colorChosser to change color cargo
+	 * @see #colorField
+	 */
 	protected JButton colorChooserButton = new JButton("...");
 	
+	/**
+	 * Click to Done
+	 */
 	protected JButton doneButton = new JButton("Done");
+	/**
+	 * Click to Cancel
+	 */
 	protected JButton cancelButton = new JButton("Cancel");
 
+	/**
+	 * Constructor for create default cargo dialog
+	 * @param parent	Parent Container for this dialog
+	 * @param title		Title of Dialog
+	 */
 	public DefaultCargoDialog(Container parent,String title) {
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -99,7 +179,7 @@ public abstract class DefaultCargoDialog extends JDialog implements ActionListen
 				dimensionPanel[i].add(widthSpinner);
 				break;
 			case 2:
-				dimensionPanel[i].add(lenghtSpinner);
+				dimensionPanel[i].add(lengthSpinner);
 				break;
 			case 3:
 				dimensionPanel[i].add(heightSpinner);

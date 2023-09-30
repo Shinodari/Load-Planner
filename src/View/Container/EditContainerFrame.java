@@ -30,7 +30,7 @@ public class EditContainerFrame extends DefaultCargoDialog {
 		
 		Size size = container.getSize();
 		widthSpinner.setValue(size.getWidth());
-		lenghtSpinner.setValue(size.getLength());
+		lengthSpinner.setValue(size.getLength());
 		heightSpinner.setValue(size.getHeight());
 		
 		Color color = container.getColor();
@@ -43,7 +43,7 @@ public class EditContainerFrame extends DefaultCargoDialog {
 		case "done":
 			String name = nameField.getText();
 			int width = widthModel.getNumber().intValue();
-			int lenght = lenghtModel.getNumber().intValue();
+			int lenght = lengthModel.getNumber().intValue();
 			int height = heightModel.getNumber().intValue();
 			Size size = new Size(lenght, width, height);
 			Color color = colorField.getBackground();
