@@ -26,7 +26,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		super("Load Planner");
 
 		//Setup MainMenuBar
-		JMenuBar mainMenuBar = new JMenuBar();
+		final JMenuBar mainMenuBar = new JMenuBar();
 		
 		JMenu mainMenu = new JMenu("Main");
 		

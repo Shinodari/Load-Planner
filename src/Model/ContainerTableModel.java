@@ -18,15 +18,22 @@ public class ContainerTableModel extends LoadPlannerDefaultTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Container container = (Container) this.dataList.get(rowIndex);
-        return switch (columnIndex) {
-            case 0 -> container.getId();
-            case 1 -> container.getName();
-            case 2 -> container.size.getWidth();
-            case 3 -> container.size.getLength();
-            case 4 -> container.size.getHeight();
-            case 5 -> container.color.getRGB();
-            default -> null;
-        };
+        switch (columnIndex) {
+            case 0:
+            	return container.getId();
+            case 1:
+            	return container.getName();
+            case 2:
+            	return container.size.getWidth();
+            case 3:
+            	return container.size.getLength();
+            case 4:
+            	return container.size.getHeight();
+            case 5:
+            	return container.color.getRGB();
+            default:
+            	return null;
+        }
     }
 
 	public void updateTable() {
