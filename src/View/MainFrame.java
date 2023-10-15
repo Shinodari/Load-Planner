@@ -95,6 +95,11 @@ public class MainFrame extends JFrame implements ActionListener {
 			} catch (PropertyVetoException e1) {
 				e1.printStackTrace();
 			}
+			try {
+				containerFrame.setMaximum(true);
+			} catch (PropertyVetoException e2) {
+				e2.printStackTrace();
+			}
 			break;
 		case "Pallet":
 			//ToDO for IssueNo: #3 (Assign: Hibino02)

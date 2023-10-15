@@ -49,11 +49,6 @@ public class ContainerFrame extends JInternalFrame implements ActionListener {
 		super("Container");
 		
 		setSize(1000, 600);
-		try {
-			setMaximum(true);
-		} catch (PropertyVetoException e) {
-			e.printStackTrace();
-		}
 		
 		//--Set Table
 		containerTable = new DefaultTable(tableModel);
