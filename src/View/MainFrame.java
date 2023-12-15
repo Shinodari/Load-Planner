@@ -14,8 +14,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.SwingUtilities;
+import javax.swing.plaf.TextUI;
 
+import Model.Pallet;
 import View.Container.ContainerFrame;
+import View.Pallet.PalletFrame;
 
 public class MainFrame extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
@@ -86,23 +89,26 @@ public class MainFrame extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()) {
 		case "Container":
-			/* -- This process in IssueNo: #2 (Assign: Shinodari) --*/
 			ContainerFrame containerFrame = new ContainerFrame();
 			containerFrame.setVisible(true);
 			desktop.add(containerFrame);
 			try {
 				containerFrame.setSelected(true);
+				containerFrame.setMaximum(true);
 			} catch (PropertyVetoException e1) {
 				e1.printStackTrace();
 			}
-			try {
-				containerFrame.setMaximum(true);
-			} catch (PropertyVetoException e2) {
-				e2.printStackTrace();
-			}
 			break;
 		case "Pallet":
-			//ToDO for IssueNo: #3 (Assign: Hibino02)
+			PalletFrame palletFrame = new PalletFrame();
+			palletFrame.setVisible(true);
+			desktop.add(palletFrame);
+			try {
+				palletFrame.setSelected(true);
+				palletFrame.setMaximum(true);
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
 			break;
 		}
 	}
